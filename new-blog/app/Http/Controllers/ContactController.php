@@ -20,7 +20,13 @@ class ContactController extends Controller
 
         $message->save(); // save to DB
 
-        return redirect()->route('home'); //redirect to home page
+        return redirect()->route('home')->with('success', 'Message Sent! Thank you!!'); //redirect to home page
 
+    }
+
+    public function getMessages(){
+        $messages = Message::all();
+        
+        return view('messages', ['messages'=>$messages]);
     }
 }

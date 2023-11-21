@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\ContactController; // Always call your controllers 
+use App\Http\Controllers\PagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,23 +16,12 @@ use App\Http\Controllers\ContactController; // Always call your controllers
 |
 */
 
-Route::get('/', function () {
+Route::get('/', [PagesController::class, 'getHome'])->name('home');
 
-    //$post = DB::table('post')->get();
+Route::get('/contact', [PagesController::class, 'getContact'])->name('contact');
 
-    return view('home');
-})->name('home');
-
-Route::get('/contact', function(){
-
-    return view('contact');
-
-})->name('contact');
-
-Route::get('/about', function(){
-
-    return view('about');
-
-})->name('about');
+Route::get('/about', [PagesController::class, 'getAbout'])->name('about');
 
 Route::post('contact/submit', [ContactController::class, 'submit'])->name('contact-form-submit'); //naming a route and using it on a form
+
+Route::get('contact/messages',[ContactController::class, 'getMessages'])->name('get-messages');

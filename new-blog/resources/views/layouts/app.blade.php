@@ -11,11 +11,13 @@
 
    
     @include('inc.navbar')
+    @include('inc.messages')
 
     <div class ="container">
         <!-- Display the Jumbotron on the Home page alone  -->
         @if (Request::is('/'))
             @include('inc.showcase')
+           
         @endif
     <div class ="row">
         <div class = "col-md-8 col-lg-8">
