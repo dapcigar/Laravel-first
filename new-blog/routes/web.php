@@ -19,16 +19,18 @@ Route::get('/', function () {
     //$post = DB::table('post')->get();
 
     return view('home');
-});
+})->name('home');
 
 Route::get('/contact', function(){
 
     return view('contact');
 
-});
+})->name('contact');
 
 Route::get('/about', function(){
 
     return view('about');
 
-});
+})->name('about');
+
+Route::post('contact/submit', 'ContactController@submit')->name('contact-form-submit'); //naming a route and using it on a form
