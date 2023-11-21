@@ -9,15 +9,41 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 
-
-
+   
     @include('inc.navbar')
 
-    @yield('content')
+    <div class ="container">
+        <!-- Display the Jumbotron on the Home page alone  -->
+        @if (Request::is('/'))
+            @include('inc.showcase')
+        @endif
+    <div class ="row">
+        <div class = "col-md-8 col-lg-8">
 
-   @include('inc.sidebar')
+        @yield('content')
+    </div>
+    <div class = "col-md-4 col-lg-4">
+         @include('inc.sidebar')
+    </div>
+</div>
+</div>
+
    
 
+  
+
+   <p>
+    <br>
+    <p>
+    <br>
+    <p>
+    <br>
+    <p>
+    <br>
+
+   
+<footer id="footer" class="text-center"> </footer>
+<p> Copyright 2023 &copy; </p>
 
 </body>
 
