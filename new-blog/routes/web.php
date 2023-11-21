@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\ContactController; // Always call your controllers 
 
 /*
 |--------------------------------------------------------------------------
@@ -33,4 +34,4 @@ Route::get('/about', function(){
 
 })->name('about');
 
-Route::post('contact/submit', 'ContactController@submit')->name('contact-form-submit'); //naming a route and using it on a form
+Route::post('contact/submit', [ContactController::class, 'submit'])->name('contact-form-submit'); //naming a route and using it on a form
